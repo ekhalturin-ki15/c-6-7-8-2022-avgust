@@ -5,72 +5,49 @@
 //a + a; Нельзя
 //function1();Нельзя
 
-int sum() // 
+int My_crazy_sum(int a, int b, char ch)
 {
-	return 6;
+	return a + b + ch;
 }
 
 
-void q() // Процедура
+char toUpper(char ch)
 {
-	int a = 23;
-	a = a + a - a * a; // -a*(a-2)
-
-
-	//return a;
+	return ch + 'A' - 'a';
 }
+
+
+char toUpper(char ch, char a)
+{
+	return ch + 'A' - 'a' + a;
+}
+
+char toUpper(bool a)
+{
+	return a + 1e2;
+}
+
+//int toUpper(bool a) // Так как название и аргументы полностью идентичны с другой
+//{
+//	return a + 1e2;
+//}
+
 
 
 int main() // main - особенная (указывает начальную точку входа)
 {
+	int t = 1200;
 
-	100 + 324234; // int
+	int a = My_crazy_sum(1000, t, 'A');
 
-	100 + 45435.;
-
-	4535345435435345; // long long
-
-	int a = -1 << 20; // Бит знака не участвует в сдвигах
-
-	int e = 0x400'00FF;
-
-	unsigned int qq = e;
-
-	e = unsigned int (e) << 20;
+	int b = My_crazy_sum(1, 5.00, 10) + My_crazy_sum(2, 2, 2);
 
 
-	float f = 0.2323;
+	char ch2 = toUpper('m');
 
+	ch2 = toUpper('m', 'a');
 
-	int aaaa = int(f) + int(f) + int(f) + int(f) + int(f) + int(f) + int(f) + int(f) + f + f + f + f + f;
+	//ch2 = toUpper(0.343434); //Не может определиться
 
-
-	int qqq = (1 - 2) * 32;
-
-
-	int qqqqqq = (1 - 2) * 32.0;
-	//Одно и тоже, что
-	int qqqqqq2 = (1 - 2) * float(32);
-
-	//int name = q();
-	q();
-
-
-	float t = 10 / sum();
-
-
-
-	long long error = 100 * 1000000000; // переполнение
-
-	//long long f = 100 * 1000000000ll; // ll на конце
-
-	//f = 100 * 1000000000ull;
-	//f = 100 * 1000000000u;
-
-	int aaaaa = sum();
-
-
-	sum() + sum();
-
-
+	ch2 = toUpper(23 && 1);
 }
