@@ -1,59 +1,58 @@
-char toUpper(char ch);
-//Глобальная область видимости
-//int a = 0;
+#include <iostream> // C++ 
 
-//a + a; Нельзя
-//function1();Нельзя
+using namespace std;
 
+// min max cos sin
+//std
 
-
-int b;
-char ch;
-
-
-//int toUpper(bool a) // Так как название и аргументы полностью идентичны с другой
-//{
-//	return a + 1e2;
-//}
-
-
-
-
-
-
-int main() // main - особенная (указывает начальную точку входа) // Аргументы берутся при вызове с консоли
+char new_string()
 {
-	int a = ch;
+	return ' ';
+}
 
-	toUpper('a');
 
-
+void out_int(int a)
+{
+	cout << a << new_string();   // << '\t' << '\r';
 
 }
 
 
 
-
-int My_crazy_sum(int a, int b, char ch)
+int funct()
 {
-	return a + b + ch;
+	return 0;
 }
 
 
-char toUpper(char ch)
+int main()
 {
-	return ch + 'A' - 'a';
-}
+	cin; // console input
+
+	int c, a;
+
+	const int r = 100;
+
+	//c = 2 + 3, 8 * 8;
+
+	//std::cin >> a;
+	//std::cin >> c;
+
+	out_int(777);
+
+	std::cout << funct();
 
 
-char toUpper(char ch, char a)
-{
-	return ch + 'A' - 'a' + a;
-}
+	if (true)
+		std::cout << "YES";
 
-char toUpper(bool a)
-{
-	int z = b;
 
-	return a + 1e2;
+
+
+
+
+
+
+
+	return 0;
 }
