@@ -5,69 +5,44 @@
 //a + a; Нельзя
 //function1();Нельзя
 
-int function1() // 
+int sum() // 
 {
-	//область видимости функции function1
-	int a = 10;
-	int b = 20;
-
-
-	return a + b;
-
+	return 6;
 }
 
+
+void q() // Процедура
+{
+	int a = 23;
+	a = a + a - a * a; // -a*(a-2)
+
+
+	//return a;
+}
 
 
 int main() // main - особенная (указывает начальную точку входа)
 {
-	const int h = 10000;
-	char t = h;
 
-	//h = 234234;
+	//int name = q();
+	q();
 
 
-	1.4334;
+	float t = 10 / sum();
 
-	long long w = 3255435e10;
 
-	int aa = w;
 
-	long long k = 10000000000000;
+	long long error = 100 * 1000000000; // переполнение
 
-	k++;
-	k--;
+	long long f = 100 * 1000000000ll;
 
-	int k2 = k;
+	f = 100 * 1000000000ull;
+	f = 100 * 1000000000u;
 
-	char a;
-	a = function1();
+	int a = sum();
 
-	//область видимости функции main
-	int amontChildren;
-	int b;
-	//float d;
-	long long name;
 
-	unsigned char q;
-	char ch3 = 97; //0 127    97 - a
-	// - 128 рус
-
-	'a';
-	'0';
-
-	char ch = '0';
-	char ch2 = ch;
-	"s";
-	"dsdsdsdsd";
-
-	//на нельзя '2324324324'
-
-	//wchar 
-
-	function1();
-
-	function1();
-
+	sum() + sum();
 
 
 }
