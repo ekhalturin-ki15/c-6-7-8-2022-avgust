@@ -27,24 +27,80 @@ int funct()
 
 int main()
 {
-	cin; // console input
+	if (1 + 324)
+		std::cout << "YES\n";
 
-	int c, a;
 
-	const int r = 100;
 
-	//c = 2 + 3, 8 * 8;
 
-	//std::cin >> a;
-	//std::cin >> c;
-
-	out_int(777);
-
-	std::cout << funct();
+	if (false) // Будут пропущены фигурные скобки
+	{
+		std::cout << "1\n";
+		std::cout << "2\n";
+	}
 
 
 	if (true)
-		std::cout << "YES";
+		std::cout << "YES\n";
+	else
+		std::cout << "NO\n";
+
+	cout << 5 << " " << 8 << "\n";
+
+	if (true)
+	{
+		int r;
+		r = 10;
+		std::cout << "YES1\n";
+		std::cout << r << "\n";
+
+
+		if (false)
+		{
+
+		}
+		else
+			1 == 1;
+	}
+	else
+	{
+		std::cout << "NO1\n";
+		std::cout << "NO2\n";
+		
+	}
+
+	int a;
+	cin >> a;
+
+
+	if (a = 1)
+	{
+		cout << "2323\n";
+	}
+
+	if (a = 0)
+	{
+		cout << "2323\n";
+	}
+
+	if (a == 0)
+	{
+		cout << "+";
+
+	}
+	else
+	{
+		if (a== 1)
+		{
+			cout << "=";
+
+		}
+		else
+		{
+			cout << "-";
+
+		}
+	}
 
 
 
@@ -52,6 +108,7 @@ int main()
 
 
 
+	//r;
 
 
 	return 0;
