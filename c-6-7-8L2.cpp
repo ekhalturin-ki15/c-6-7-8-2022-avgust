@@ -21,95 +21,82 @@ void out_int(int a)
 
 int funct()
 {
+
+	int a;
+	cin >> a;
+
+
+	if (a == 9) // Не выполнится, так как возвр 0
+	{
+		std::cout << "1\n";
+		std::cout << "2\n";
+
+		return 5;
+	}
+
+
+
+	
+
+	switch (a)
+	{
+	default:
+
+		cout << "]";
+
+		break;
+
+	case 20:
+		cout << "}";
+
+		switch (111)
+		{
+
+		case 1:
+
+			if (12)
+			{
+				return 100;
+			}
+			else
+			{
+
+
+			}
+			break;
+
+		}
+
+
+		return 3;
+
+	case 10:
+		cout << "+";
+
+
+	}
+
+	cout << "=";
+
+
+
 	return 0;
 }
 
 
 int main()
 {
-	if (1 + 324)
-		std::cout << "YES\n";
+	int r = funct();
+	char ch = 'c';
+	ch = 97;
 
+	min(2, 2);
 
+	cout << sizeof(ch);
 
+	cout << sizeof(r);
 
-	if (false) // Будут пропущены фигурные скобки
-	{
-		std::cout << "1\n";
-		std::cout << "2\n";
-	}
+    cos(323.23232);
 
-
-	if (true)
-		std::cout << "YES\n";
-	else
-		std::cout << "NO\n";
-
-	cout << 5 << " " << 8 << "\n";
-
-	if (true)
-	{
-		int r;
-		r = 10;
-		std::cout << "YES1\n";
-		std::cout << r << "\n";
-
-
-		if (false)
-		{
-
-		}
-		else
-			1 == 1;
-	}
-	else
-	{
-		std::cout << "NO1\n";
-		std::cout << "NO2\n";
-		
-	}
-
-	int a;
-	cin >> a;
-
-
-	if (a = 1)
-	{
-		cout << "2323\n";
-	}
-
-	if (a = 0)
-	{
-		cout << "2323\n";
-	}
-
-	if (a == 0)
-	{
-		cout << "+";
-
-	}
-	else
-	{
-		if (a== 1)
-		{
-			cout << "=";
-
-		}
-		else
-		{
-			cout << "-";
-
-		}
-	}
-
-
-
-
-
-
-
-	//r;
-
-
-	return 0;
+	cout << r;
 }
