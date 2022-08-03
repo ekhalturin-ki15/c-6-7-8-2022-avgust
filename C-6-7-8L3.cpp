@@ -2,50 +2,53 @@
 
 using namespace std;
 
+
+int sum(int* a, int bbbbbb)
+{ 
+	(*a) = 0; // Чтобы получить переменную из другой функции и изменить её (то есть, получаем оригинал)
+
+	return (*a) + bbbbbb;
+}
+
+
+
+
+
+
 int main()
 {
-	long long LL;
-	long long* andres_crazy_LL;
-	// (long long*) (long long)
-	andres_crazy_LL = &LL;
+	int a;
 
-	LL = 2323;
+	cout << &a << '\n';
 
 
-	cout << *andres_crazy_LL << "    " << LL << '\n'; // Всегда совпадут
+	int b;
+
+	cin >> a >> b;
 
 
-	cout << (long long) (andres_crazy_LL) << " " << andres_crazy_LL << '\n';;
-
-
-	//long long* a; // Указатели
-	//long long* b;
-
-
-	//cout << &ch;
-
-	int a = 5;
-
-
-	cout << a << " " << *(&a) << " "<< &a << '\n';;
-
-	// int &
-	int& b = a;
-
-	cout << a << " " << b;
-
-	a++;
-
+	cout << sum(&a, b) <<'\n';
 
 	cout << a << " " << b;
 
 
-	int* bb = &a;
-	*(bb);
+
+
+	//*-> int
+
+	char* adr; // Указатель
+
+	char ch = 'a';
+
+	char& ch2 = ch; //Псевдоним
+
+	adr = &ch;
+
+	//cout << int(adr) + 5;
 
 
 
-	int& bbb = a; // Чтобы не писать звёздоски (второе имя переменной)
-	bbb;
+
+
 
 }
