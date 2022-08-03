@@ -5,39 +5,28 @@
 
 using namespace std;
 
+int a;
 
-void zeroing(int& a, int b) // Нельзя делать псевдоним на временные const
-{
-	a = 0; 
-	b = 0;
-}
 
 
 int main()
 {
 
-	int a = 0, b;
+	int a, b;
 
-	char ch;
-	//scanf("%c %i %ll",  ((char *)(&a)) + 3, &b);
+crazy_laybe:
+	scanf("%i %i", &a, &b);
 
-	scanf_s("%d %d", (&a), &b);
-
-
-
-	zeroing(a, b);
-
-	zeroing(a, 100);
+	if (a != b)
+	{
+		printf("Try again    %i  %c %ull \n", 23, 32 , a);
+		goto crazy_laybe; // Ассемблер
+	}
 
 
-	//printf("%c%d   %ll %i", 213312, 's', ch, b);
 
-	printf("%d %d", a, b);
-
-	//printf();
+	printf("We all exit\n");
 
 
-	//cin >> a >> b;
-	//cout << a << " " << b;
 
 }
