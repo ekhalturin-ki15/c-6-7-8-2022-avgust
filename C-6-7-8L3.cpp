@@ -18,21 +18,18 @@ int main()
 
 	for (int step = 0; step < N; ++step)
 	{
-		scanf("%i %i", &a, &b);
+		printf("YES\n");
+		continue;
+		scanf("%.3f %i", &a, &b);
 		
 		if (a == b)
 		{
 			break;
 		}
-
 	}
-	
 
 
-
-
-
-
+	//step++; Нельзя, так как переменная в цикле
 
 	////while ( true )
 
@@ -42,11 +39,29 @@ int main()
 
 
 
+	a = 0;
+	while (a < N)
+	{
+		printf("YOHOHO\n");
 
-	//while (a < N)
-	//{
-	//	++a;
-	//}
+		++a;
+
+		continue;
+		a *= 10;
+	}
+
+
+	do
+	{
+		printf("Arrrr\n");
+
+		++a;
+
+		continue;
+		a *= 10;
+
+
+	} while (a < N);
 
 
 
