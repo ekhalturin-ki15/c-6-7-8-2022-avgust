@@ -12,59 +12,51 @@ int a;
 int main()
 {
 
-	//while ( true )
+	int a, b;
 
+	const int N = 10;
 
-	int a = 0;
-	int b = 0;
-
-
-	int i = 0;
-
-	while (i < 1e7)
+	for (int step = 0; step < N; ++step)
 	{
-		b += 1;
-		i++;
+		scanf("%i %i", &a, &b);
+		
+		if (a == b)
+		{
+			break;
+		}
+
 	}
+	
 
 
 
-	//while (true) // 10 миллионов операций в секунду
+
+
+
+
+	////while ( true )
+
+
+	//int a = 100;
+	//int b;
+
+
+
+
+	//while (a < N)
 	//{
-
-	//	//printf("%i\n", i);
-	//	//i = i + 11 / 10;
-	//	i += 11 / 10;
-	//	 //*= /= %= &=
-
-
+	//	++a;
 	//}
 
 
-	/*while (a != b)
-	{
-		printf("Number is not equal, try again\n");
-		scanf("%i %i", &a, &b);
-	}*/
 
 
-	//while (true)
+
+	//do // Выполнится хотя бы раз
 	//{
 	//	scanf("%i %i", &a, &b);
-
-	//	if (a != b)
-	//	{
-	//		printf("Number is not equal, try again\n");
-	//	}
-	//	else
-	//	{
-	//		printf("Number is equal");
-	//		break;
-	//	}
-	//} // Возврат обратно на условие
-
-
-
+	//	printf("Number is not equal, try again\n");
+	//} while (a != b);
 
 
 	
