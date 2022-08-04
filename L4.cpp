@@ -4,6 +4,9 @@
 #include <cmath>
 #include <fstream>
 
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 #pragma warning(disable: 4996) 
 
@@ -61,6 +64,16 @@ int ternar(bool bl, int a, int b)
 
 int main()
 {
+    //while (true)
+    //{
+    //    int* aa;
+    //    aa = new int; // Существует до перезагрузки ОС
+
+    //    int a;
+    //    a = 500;
+    //}
+
+
     freopen("input.txt", "r", stdin); // stdin - это консольный ввод
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
@@ -70,8 +83,7 @@ int main()
     int n;
     cin >> n;
 
-
-    int a[11]; // [0 11) Статическое объявление
+    int a[1000]; // [0 11) Статическое объявление
 
     int* b = a;
 
@@ -92,13 +104,22 @@ int main()
     }
 
 
-    
+    unsigned long long* crazy_ptr; // указатель на int
 
+    int* bb = new int;
+
+    char* cc = new char;
+
+    crazy_ptr = new unsigned long long;
+
+    delete crazy_ptr;
+    delete bb;
+    delete cc;
 
     //cin >> a >> b >> c;
 
 
-
+    _CrtDumpMemoryLeaks();
     return 0;
   
 
