@@ -67,11 +67,58 @@ int main()
     freopen("input.txt", "r", stdin); // stdin - это консольный ввод
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
-    int a = 5;
-    int b = 10;
-    int c;
+    
 
-    c = (a = 1, b = 3);
+    int h, w;
+
+    cin >> h >> w;
+
+    char a[10][110]; // y  x
+
+    for (int y = 0; y < h; ++y)
+    {
+        for (int x = 0; x < w; ++x)
+        {
+            a[y][x] = '.';
+            if (y == h / 3)
+                if ((x == w / 5) || (x == 4 * w / 5))
+                {
+                    a[y][x] = '0';
+                }
+        }
+
+        if (y == 8 * h / 10)
+        {
+            for (int x = w/10; x <= 9*w/10; ++x)
+            {
+                a[y][x] = '_';
+            }
+
+            a[y][w / 10] = '\\';
+            a[y][9 * w / 10] = '/';
+
+        }
+
+    }
+
+    for (int y = 0; y < h; ++y)
+    {
+        for (int x = 0; x < w; ++x)
+        {
+            cout << a[y][x];
+        }
+
+        cout << "\n";
+
+    }
+
+   // a[][0]
+
+   // a[][1]
+
+
+    //a[2][1];
+   
 
     //cin >> n;
 
