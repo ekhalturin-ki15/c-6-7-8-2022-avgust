@@ -1,8 +1,11 @@
 ﻿#include <iostream>
 #include <algorithm>
 #include <list>
-
 #include <cmath>
+#include <fstream>
+
+
+#pragma warning(disable: 4996) 
 
 using namespace std;
 
@@ -51,63 +54,31 @@ int ternar(bool bl, int a, int b)
 
 int main()
 {
+    freopen("input.txt", "r", stdin); // stdin - это консольный ввод
+    freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
-    int a = 1, b = 2, c;
+    ifstream in("input.txt");
 
-    if (a > b)
+
+    int a;
+    cin >> a;
+
+    int test;
+    cin >> test;
+
+    for (int i_test = 0; i_test < test; ++i_test)
     {
-        c = a;
-    }
-    else
-    {
-        c = b;
-    }
 
-    a = 2; b = 1;
+        int a, b;
 
-    //my_crazy_abs(((a < b) ? a : b));
-    c = ((a < b)?  a : b);
+        in >> a >> b;
 
-    c = ternar(a < b, a, b);
-
-   /* if (a != b)
-    {
-        cout << "No equel\n";
-    }
-    else
-    {
-        cout << " Equal\n";
-    }*/
-
-    // 1 ? 2 : 3;
-    //int d =  ( (a != b) ? 343434 : c = 10 );
-
-
-
-
-
-
-    return 0;
-
-    char ch = '!';
-
-
-    for (int z = 0; z < 10; z++)
-    {
-        for (int y = 0; y < 10; ++y)
-        {
-            for (int x = 0; x < 10; ++x)
-            {
-                cout << ch;
-            }
-
-            cout << "\n";
-            ++ch;
-        }
+        cout << a;
 
         cout << "\n";
-        cout << "\n";
     }
+
+
 
     return 0;
   
