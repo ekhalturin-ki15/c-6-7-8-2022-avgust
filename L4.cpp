@@ -64,61 +64,37 @@ int ternar(bool bl, int a, int b)
 
 int main()
 {
-    //while (true)
-    //{
-    //    int* aa;
-    //    aa = new int; // Существует до перезагрузки ОС
-
-    //    int a;
-    //    a = 500;
-    //}
-
-
     freopen("input.txt", "r", stdin); // stdin - это консольный ввод
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
-    //int a, b, c;
-
-
     int n;
+
     cin >> n;
 
-    int a[1000]; // [0 11) Статическое объявление
+
+    int a[11]; // n
 
     int* b = a;
 
-    int index = 0;
+    b = new int[n];
 
 
     for (int i = 0; i < n; ++i)
     {
-        //[x]  ~  *( + x)
-        cin >> *(a + i); //aka    cin >> a[ i ];
-
+        cin >> b[i];
     }
 
+    cout << b;
 
-    for (int j = 0; j < n; j++)
+    for (int i = n - 1; i >= 0; --i)
     {
-        cout << a[j] << " ";
+        cout << b[i] << " ";
     }
 
-
-    unsigned long long* crazy_ptr; // указатель на int
-
-    int* bb = new int;
-
-    char* cc = new char;
-
-    crazy_ptr = new unsigned long long;
-
-    delete crazy_ptr;
-    delete bb;
-    delete cc;
-
-    //cin >> a >> b >> c;
+    
 
 
+    delete [] b;
     _CrtDumpMemoryLeaks();
     return 0;
   
