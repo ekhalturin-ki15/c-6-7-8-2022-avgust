@@ -67,34 +67,33 @@ int main()
     freopen("input.txt", "r", stdin); // stdin - это консольный ввод
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
-    int n;
+    int a = 5;
+    int b = 10;
+    int c;
 
-    cin >> n;
+    c = (a = 1, b = 3);
 
+    //cin >> n;
 
-    int a[11]; // n
-
-    int* b = a;
-
-    b = new int[n];
-
+    /*int* a = new int[n];
 
     for (int i = 0; i < n; ++i)
     {
-        cin >> b[i];
+        cin >> a[i];
     }
 
-    cout << b;
-
-    for (int i = n - 1; i >= 0; --i)
+    int count = 0;
+    for (int i = n - 1; i >= 1; --i)
     {
-        cout << b[i] << " ";
+        if ((a[i] > a[i - 1]) and (a[i] > a[i + 1]))
+        {
+            ++count;
+        }
     }
 
-    
+    cout << count;
 
-
-    delete [] b;
+    delete[] a;*/
     _CrtDumpMemoryLeaks();
     return 0;
   
