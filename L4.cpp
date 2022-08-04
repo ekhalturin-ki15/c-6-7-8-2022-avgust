@@ -38,121 +38,78 @@ void divide_on_two(long long& a)
 }
 
 
+int ternar(bool bl, int a, int b)
+{
+    if (bl)
+        return a;
+    else
+        return b;
+
+}
+
+
 
 int main()
 {
 
-    //'a';
+    int a = 1, b = 2, c;
 
-    //ch<='A';
-
-
-    int y = 0;
-    while (y < 10)
+    if (a > b)
     {
-        if ((y == 0) || (y == 9))
+        c = a;
+    }
+    else
+    {
+        c = b;
+    }
+
+    a = 2; b = 1;
+
+    //my_crazy_abs(((a < b) ? a : b));
+    c = ((a < b)?  a : b);
+
+    c = ternar(a < b, a, b);
+
+   /* if (a != b)
+    {
+        cout << "No equel\n";
+    }
+    else
+    {
+        cout << " Equal\n";
+    }*/
+
+    // 1 ? 2 : 3;
+    //int d =  ( (a != b) ? 343434 : c = 10 );
+
+
+
+
+
+
+    return 0;
+
+    char ch = '!';
+
+
+    for (int z = 0; z < 10; z++)
+    {
+        for (int y = 0; y < 10; ++y)
         {
             for (int x = 0; x < 10; ++x)
             {
-                cout << "-";
+                cout << ch;
             }
 
-        }
-        else
-        {
-            int x = -1;
-            do
-            {
-                ++x;
-                if ((x == 0) || (x == 9))
-                {
-                    cout << "|";
-                }
-                else
-                { 
-                    if ((x == 3) || (x == 6))
-                        if (y == 4)
-                        {
-                            cout << (unsigned char)(219);
-                            continue;
-                        }
-
-
-                    cout << " ";
-
-
-
-                }
-
-                
-            } while (x < 10);
-
+            cout << "\n";
+            ++ch;
         }
 
-        ++y;
-
+        cout << "\n";
         cout << "\n";
     }
 
-
-    //for (auto& it: S)
-
     return 0;
-
-    int a = 1;
-    switch (a)
-    {
-    case 1:
-        cout << "0";
-
-
-    case 2:
-        cout << "-";
-        ++a;
-        
-        break;
-
-
-    case 3:
-        cout << "0";
-    }
-
-
-    return 0;
-    
-    long long s = 1000;
-
-    cout << &s << "\n";
-
-    divide_on_two(s);
-
-
-    return 0;
-
-
-    int aa; // 4b
-
-    char ch = 'Л';//1b
-
-    //ch = -32;
-
-
-    bool bl; // true false
-
-
-    float f;// 4b
-
-    double d;// 8 b
-
-    long long ll; // 8 b
-
-
-    //unsigned char int long long
-
-    //wchar_t w = L'ы';
-    //wstring s = L"fdsfdsf";
-
-    
-
+  
 
 }
