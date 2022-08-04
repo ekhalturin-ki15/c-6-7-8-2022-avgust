@@ -19,6 +19,13 @@ long long  my_crazy_abs(long long x)   // |-x| = x
     return ret;
 }
 
+void f1(const int& r)
+{
+    //r = 100;
+    cout << r;
+
+}
+
 //mod
 void divide_on_two(long long& a)
 {
@@ -57,26 +64,38 @@ int main()
     freopen("input.txt", "r", stdin); // stdin - это консольный ввод
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
-    ifstream in("input.txt");
+    //int a, b, c;
 
 
-    int a;
-    cin >> a;
+    int n;
+    cin >> n;
 
-    int test;
-    cin >> test;
 
-    for (int i_test = 0; i_test < test; ++i_test)
+    int a[11]; // [0 11) Статическое объявление
+
+    int* b = a;
+
+    int index = 0;
+
+
+    for (int i = 0; i < n; ++i)
     {
+        //[x]  ~  *( + x)
+        cin >> *(a + i); //aka    cin >> a[ i ];
 
-        int a, b;
-
-        in >> a >> b;
-
-        cout << a;
-
-        cout << "\n";
     }
+
+
+    for (int j = 0; j < n; j++)
+    {
+        cout << a[j] << " ";
+    }
+
+
+    
+
+
+    //cin >> a >> b >> c;
 
 
 
