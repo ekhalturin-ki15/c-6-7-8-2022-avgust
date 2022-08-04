@@ -62,6 +62,12 @@ int ternar(bool bl, int a, int b)
 
 }
 
+int h, w;
+int to_odnomeria(int y, int x)
+{
+    return y * h + x;
+}
+
 
 
 int main()
@@ -70,31 +76,41 @@ int main()
     freopen("output.txt", "w", stdout);  // stdout - это консольный вывод
 
 
+    std::string name_smail;//Не надо delete
 
+    cin >> name_smail;
     
 
     //std::string name_smail;
 
     //cin >> name_smail;
 
-    char* name_smail;
+    //char* name_smail;
 
-    int size_name;
-    cin >> size_name;
-    name_smail = new char[size_name + 1];
+    //int size_name;
+    //cin >> size_name;
+    //name_smail = new char[size_name + 1];
 
-    for (int i = 0; i < size_name; ++i)
-    {
-        cin >> name_smail[i];
-    }
-    name_smail[size_name] = '\0';
+    //for (int i = 0; i < size_name; ++i)
+    //{
+    //    cin >> name_smail[i];
+    //}
+    //name_smail[size_name] = '\0';
 
 
-    int h, w;
+  
 
     cin >> h >> w;
 
-    char a[10][110]; // y  x
+    //char a[h][w]; // y  x
+
+    //char* a = new char[h * w];
+    char** a = new char* [h];
+    for (int y = 0; y < h; ++y)
+        a[y] = new char[w];
+
+
+    //system("pause");
 
     for (int y = 0; y < h; ++y)
     {
@@ -125,6 +141,7 @@ int main()
    /* int i = 0;
     while (name_smail[i] != '\0')
         cout << name_smail[i++];*/
+
     cout << name_smail;
 
     for (int y = 0; y < h; ++y)
@@ -135,40 +152,19 @@ int main()
             cout << a[y][x];
         }
 
-
-
     }
 
-    // a[][0]
 
-    // a[][1]
+    
+    for (int y = 0; y < h; ++y)
+        delete [] a[y];
+
+    delete[] a;
 
 
-     //a[2][1];
-
-
-     //cin >> n;
-
-     /*int* a = new int[n];
-
-     for (int i = 0; i < n; ++i)
-     {
-         cin >> a[i];
-     }
-
-     int count = 0;
-     for (int i = n - 1; i >= 1; --i)
-     {
-         if ((a[i] > a[i - 1]) and (a[i] > a[i + 1]))
-         {
-             ++count;
-         }
-     }
-
-     cout << count;
-
-     delete[] a;*/
     _CrtDumpMemoryLeaks();
+
+
     return 0;
 
 
