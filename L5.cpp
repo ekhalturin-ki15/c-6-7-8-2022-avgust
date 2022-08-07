@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <cmath>
 
 #pragma warning(disable : 4996) 
 
@@ -16,48 +17,107 @@ char ch;
 std::string s;
 
 
+
+int abs(int a)
+{
+    if (a < 0) return -a;
+    return a;
+}
+
+
+long long my_pow(long long a, long long p) // long long
+{
+    long long x = 1;
+    for (int i = 0; i < p; ++i) // O(p)
+        x *= a;
+    return x;
+}
+
+
+long long bin_my_pow(long long a, long long p) // long long
+{
+    if (p == 1) return a;// O(log(p)) ~ O(1)
+    long long x;
+    if (p % 2 == 0)
+    {
+        x = bin_my_pow(a, p / 2);
+        x = x * x;
+    }
+    else
+    {
+        x = bin_my_pow(a, p / 2);
+        x = x * x;
+        x = x * a;
+    }
+    return x;
+
+}
+
+//Приближеный метод Ньютона
+
+//Целых чисел бин поиск
+long long my_crazy_sqrt(long long a)
+{
+    long long x = a/2;
+    while (x * x <= a)
+    {
+        if (x * x == a) return x;
+        ++x;
+    }
+    return -1;
+}
+
+
 int main()
 {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    double d = 1/(543543253453425.);
-    double f = 1/(543543253453426.);
-    //long double 1e-12
-    //double 1e-9
-    //float 1e-6
-
-    double crazy_e = 1e-12; // Задаёт точность сравнения (до скольки знаков)
-    // Нельзя использовать == если вещественные
-
-    long long a, b;
-    cin >> a >> b;
 
 
-    while ((a != 0) && (b != 0))
-    //while (a && b)
-    {
-        if (a > b) a = a % b;
-        else b = b % a;
-    }
-    cout << a + b;
 
 
-    return 0;
-
-    if (abs(d - f) < crazy_e)
-    {
-        cout << "YES";
-
-    }
-    else
-    {
-        cout << "NO";
-    }
-
-    printf("%.3lf");
 
 
+
+
+
+    powl(10, 5); // double
+
+    my_pow(10, 5);
+
+
+    cout << round(0.49999999);
+    cout << "\n";
+    cout << round(1.5);
+    cout << "\n";
+    cout << floor(0.999);
+    cout << "\n";
+    cout << ceilf(0.999);
+
+
+    max(2ll, 2ll);
+
+    min(0.0, 0.3);
+
+    sin(0.32);
+
+    asin(sin(0.32)); //На вход //-1 1 На выход угол в радианах
+
+    cout << "\n";
+    cout << log(2.71); // Натуральный логарифм
+
+
+    double PI = atan2(0, -1);
+
+    cout << "\n";
+    cout << sqrt(9);
+
+
+    cout << "\n";
+    cout << pow(9, 0.5);
+
+    
 
 }
 
