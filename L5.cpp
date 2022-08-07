@@ -73,6 +73,11 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
+    //std::tuple
+    
+    //cout << log2(9);
+
+
 
 
 
