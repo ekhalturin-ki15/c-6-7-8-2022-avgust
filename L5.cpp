@@ -21,70 +21,43 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    //тип  имя  = начальное значение;
+    double d = 1/(543543253453425.);
+    double f = 1/(543543253453426.);
+    //long double 1e-12
+    //double 1e-9
+    //float 1e-6
+
+    double crazy_e = 1e-12; // Задаёт точность сравнения (до скольки знаков)
+    // Нельзя использовать == если вещественные
+
+    long long a, b;
+    cin >> a >> b;
 
 
-    int N;
-    cin >> N;
-
-    // O(N)
-    std::vector<int> v(N), vv(N * 2);
-
-    v[9] = 10;
-
-    for (int i = 0; i < N; ++i)
-        cout << v[i] << "\n";
-
-
-    //v = v + vv;
-
-    string s = "abcd", ss = "1234";
-
-    s += ss;
-
-    cout << s;
-
-    //vector<int>::
-
-    //O(1 + 1 + N + 3 + N)
-    //O(N)
-
-
-
-    for (int i = 0; i < N; ++i) // 10 мил
+    while ((a != 0) && (b != 0))
+    //while (a && b)
     {
-        cout << "----";
+        if (a > b) a = a % b;
+        else b = b % a;
+    }
+    cout << a + b;
+
+
+    return 0;
+
+    if (abs(d - f) < crazy_e)
+    {
+        cout << "YES";
 
     }
-
-
-    //O(N)
-
-    //O(1) - не зависит от N
-
-
-
-    //O(1000*N) -> O(N)
-    for (int x = 0; x < 1000; ++x)
+    else
     {
-        for (int y = 0; y < N; ++y)
-        {
-            cout << "8";
-
-        }
-
+        cout << "NO";
     }
 
+    printf("%.3lf");
 
 
-    //O(N)
-
-
-    //O(N^3)
-
-    //string s;
-    //cin >> s;
-    //s.size();
 
 }
 
