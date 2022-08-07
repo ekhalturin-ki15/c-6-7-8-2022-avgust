@@ -4,126 +4,110 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 #pragma warning(disable : 4996) 
 
 using namespace std;
 
+//double dis(int x, int y)
+//{
+//    return sqrt(x * x + y * y);
+//}
 
-
-
-int q; // По умолчанию значение 0
-char ch;
-std::string s;
-
-
-
-int abs(int a)
+struct MyCrazyString
 {
-    if (a < 0) return -a;
-    return a;
-}
+    char* s;
+    int crazySize;
+};
 
-
-long long my_pow(long long a, long long p) // long long
+MyCrazyString CinMyCrazyString()
 {
-    long long x = 1;
-    for (int i = 0; i < p; ++i) // O(p)
-        x *= a;
-    return x;
-}
+    char ch;
+    MyCrazyString answer;
+    //answer.s = 0;
+    answer.s = nullptr;
+    answer.crazySize = 0;
 
 
-long long bin_my_pow(long long a, long long p) // long long
-{
-    if (p == 1) return a;// O(log(p)) ~ O(1)
-    long long x;
-    if (p % 2 == 0)
+    while (true)
     {
-        x = bin_my_pow(a, p / 2);
-        x = x * x;
-    }
-    else
-    {
-        x = bin_my_pow(a, p / 2);
-        x = x * x;
-        x = x * a;
-    }
-    return x;
+        cin >> noskipws >> ch;
+        if (ch == ' ') break;
 
+        char* tmp_s = new char [answer.crazySize + 1];
+        for (int i = 0; i < answer.crazySize; ++i)
+            tmp_s[i] = answer.s[i];
+
+        tmp_s[answer.crazySize] = ch;
+
+        delete[] answer.s;
+        answer.s = tmp_s;
+        answer.crazySize++;
+    }
+
+    return answer;
 }
 
-//Приближеный метод Ньютона
 
-//Целых чисел бин поиск
-long long my_crazy_sqrt(long long a)
+
+
+
+struct CrazyPoint
 {
-    long long x = a/2;
-    while (x * x <= a)
-    {
-        if (x * x == a) return x;
-        ++x;
-    }
-    return -1;
-}
+    int x;
+    int y;
+    int z;
+    string name;
+};
 
+double dis(CrazyPoint p)
+{
+    return sqrt(p.x * p.x + p.y * p.y);
+}
 
 int main()
 {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    //std::tuple
-    
-    //cout << log2(9);
+    CrazyPoint p1, b2;
+    p1.x = 10;
+    p1.y = 0;
+    p1.z = 0;
+
+    p1.name = "A";
+
+    CrazyPoint p2;
+    p2.x = 5;
+    p2.y = 21;
+    p2.z = 0;
+
+    p2.name = "B";
+
+    CrazyPoint p3, p4;
+
+    p4.name = "23";
 
 
+    //int x1 = 10, y1 = 0;
+    //int x2 = 5, y2 = 21;
+
+    if (dis(p1) < dis(p2))
+    {
+        cout << "Первая точка ближе\n";
+        //cout << "The First point is near in centroid\n";
+    }
+    else
+    {
+        cout << "Вторая точка ближе\n";
+        //cout << "The Second point is far in centroid\n";
+    }
 
 
-
-
-
-
-
-
-
-    powl(10, 5); // double
-
-    my_pow(10, 5);
-
-
-    cout << round(0.49999999);
-    cout << "\n";
-    cout << round(1.5);
-    cout << "\n";
-    cout << floor(0.999);
-    cout << "\n";
-    cout << ceilf(0.999);
-
-
-    max(2ll, 2ll);
-
-    min(0.0, 0.3);
-
-    sin(0.32);
-
-    asin(sin(0.32)); //На вход //-1 1 На выход угол в радианах
-
-    cout << "\n";
-    cout << log(2.71); // Натуральный логарифм
-
-
-    double PI = atan2(0, -1);
-
-    cout << "\n";
-    cout << sqrt(9);
-
-
-    cout << "\n";
-    cout << pow(9, 0.5);
-
-    
-
+    MyCrazyString str, b4;
+    str = CinMyCrazyString();
+    b4 = CinMyCrazyString();
 }
 
 
