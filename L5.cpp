@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <vector>
 
 #pragma warning(disable : 4996) 
 
@@ -17,120 +18,73 @@ std::string s;
 
 int main()
 {
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     //тип  имя  = начальное значение;
 
-    int a = 0;
-    long long ll = 0x0000FFFF;  // нуль икс 
 
-    cin >> s;
+    int N;
+    cin >> N;
 
-    //if (  Условие  )
+    // O(N)
+    std::vector<int> v(N), vv(N * 2);
 
-    if (s == "five_lecture")
+    v[9] = 10;
+
+    for (int i = 0; i < N; ++i)
+        cout << v[i] << "\n";
+
+
+    //v = v + vv;
+
+    string s = "abcd", ss = "1234";
+
+    s += ss;
+
+    cout << s;
+
+    //vector<int>::
+
+    //O(1 + 1 + N + 3 + N)
+    //O(N)
+
+
+
+    for (int i = 0; i < N; ++i) // 10 мил
     {
-        cout << "YES";
+        cout << "----";
 
-    }
-    else
-    {
-        cout << "NO";
-
-    }
-    cout << "\n"; // Перенос строки в выводе
-
-    switch (q)
-    {
-    case 0:
-        cout << "-";
-    case 1:
-        cout << " ";
-    default:
-        cout << "-";
-    }
-
-    int f = (s == "aaa") ? 10 : -10;
-
-
-    cout << ((s == "aaa") ? "YES" : "NO");
-
-    cout << "\n";
-    while (s == "daa")
-    {
-        cout << "%%%%%%%%\n";
-        s[0]++; // Как с массивом, изменяем символ с индексом 0
     }
 
 
+    //O(N)
+
+    //O(1) - не зависит от N
 
 
 
-    do//while (s == "daa")
+    //O(1000*N) -> O(N)
+    for (int x = 0; x < 1000; ++x)
     {
-        cout << "#########\n";
-        s[0]++; // Как с массивом, изменяем символ с индексом 0
-    } while (s == "daa");
+        for (int y = 0; y < N; ++y)
+        {
+            cout << "8";
 
-
-    for (int i = 0; i < 10; ++i)   // [0 10)
-    {
-        cout << "!!!!!!!!!!\n";
-
+        }
 
     }
 
-   // int N;
-   // cin >> N;
-
-    int crazy_mas[1000];
-
-    for (int i = 0; i < 1000; ++i)   // [0 10)
-    {
-        crazy_mas[i] = ++i;	 // Выполняется ++i до присваивания
-    }
 
 
-    cout << crazy_mas[201];
+    //O(N)
 
 
-    char* ch;
+    //O(N^3)
 
-    ch = new char[1001];
-
-
-
-    ch[10] = '\0';
-
-    cout << ch;
-
-
-    long long mas_ll[100][20];
-
-    mas_ll[50][10];
-
-
-    long long** dynamic_mas_ll; //размер как у mas_ll
-
-    dynamic_mas_ll = new long long* [100];
-
-    for (int i = 0; i < 100; ++i)
-        dynamic_mas_ll[i] = new long long[20];
-
-
-    dynamic_mas_ll[50][10] = 324234324;
-
-    for (int i = 0; i < 100; ++i)
-        delete[] dynamic_mas_ll[i];
-
-    delete [] dynamic_mas_ll;
-
-
-
-
-
-
+    //string s;
+    //cin >> s;
+    //s.size();
 
 }
 
