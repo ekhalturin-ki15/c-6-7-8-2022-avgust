@@ -5,65 +5,33 @@
 #include <cmath>
 #include <fstream>
 #include <tuple>
+#include <functional>
 
 //G++ #include "bits/stdc++.h"
 using namespace std;
 
 #pragma warning(disable : 4996)
 
-struct MyPoint
+
+int sum(int a, float b)
 {
-	int x = 0;
-	int y = 0;
-	int z = 0;
-
-	/*MyPoint(int xx, int yy, int zz) : x{ xx }, y{ yy }, z{ zz }, name{"2323"}
-	{
-
-	}*/
-
-	string name;
-
-	int CinName(); // Метод
-} p1, p2, p3;
-
-
-int MyPoint::CinName() //MyPoint:: указывает на то, что это метод структуры MyPoint
-{
-	int ret = x + y + z;
-
-	cin >> name;
-	cin >> x >> y >> z;
-
-	return ret;
+	return a + b;
 }
 
-//void CinName(MyPoint p) // Копирование
-//{
-//
-//}
-
-//void CinName(MyPoint& p) // Копирование
-//{
-//	cin >> p.name;
-//	cin >> p.x >> p.y >> p.z;
-//}
-
-
-struct MyCrazyPair
+int mul(int a, float b)
 {
-	int first;
-	float second;
-};
+	return a * b;
 
+}
 
-struct MyTuple
+//int doing(void* f)
+int crazy_doing(std::function < int(int,float)> f, int a, int b)
 {
-	int a;
-	int b;
-	float fl;
-	string st;
-};
+	return f(a, b);
+}
+
+
+
 
 int main()
 {
@@ -72,47 +40,26 @@ int main()
 	freopen_s(&IN,"input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	vector<int> v, q, w;
-	v.push_back(1);
-	v.push_back(2);
+	int* q; // = 35893475
 
-	cout << v[0];
+	int a = 500, b; // по адресу 35893475
 
-	v.size();
+	//cout << float(a);
 
-	v.resize(1);
+	q = &a;
 
-	v.assign(100, -1); // resize и смена всех значений
+	void* p;
 
-	v.back(); // v[ v.size() - 1]
+	p = &a; // 5000
 
-	v.front(); // v[0]
+	//cout << *(int*)(p);
+	std::function < int(int, float)> random_function = sum;
 
-	v.at(10);
+	p = sum;
+	cin >> a >> b;
 
-	v.clear();
+	random_function = mul;
 
+	cout << crazy_doing(sum, a , b) << " " << crazy_doing(mul, a, b);
 
-	std::pair<int, float> pr;
-	pr.first = 10;
-	pr.second = 23;
-	
-	MyCrazyPair pr2;
-	pr2.first = 10;
-	pr2.second = 23;
-
-	std::tuple<int, int, float, string> t;
-	std::tuple<int, char, float, string> t2;
-	MyTuple tr;
-	tr.a = 1;
-	tr.b = 2;
-
-	get<0>(t) = 1;
-	cout << get<0>(t);
-
-	get<3>(t2) = "AAAAAA";
-
-	cin >> get<0>(t) >> get<1>(t); 
-
-	//get< x > где x это какое по счёту поле
 }
