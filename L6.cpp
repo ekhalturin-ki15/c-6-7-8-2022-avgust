@@ -42,67 +42,25 @@ int main()
 	freopen_s(&IN,"input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	string crazy_s;
-	crazy_s.push_back('2');
+	vector<int> vv = { 2, 1, 2, 34, 2, 4, 3 ,54 ,3 ,3 , 2 };
 
-	crazy_s.c_str(); // Из string в char*
+	//int* v;
+	//sort(v, v + 10);
 
-	vector<int> vv = {2, 3, 4, 5, 6, 1, 2 ,3 , 4, 3};
-	vector<int> v;
-	int n;
-	//cin >> n;
+	std::sort(vv.begin(), vv.begin() + vv.size());
 
-	//v.resize(n);
+	sort(vv.begin(), vv.end()); // O(N log(N))
+	
+	double d = 232131e-10, b = 324324e-12;
 
-	//for (int i = 0; i < n; ++i)
-	//{
-	//	cin >> v[i];
-	//}
+	double craze_eps = 1e-4;
 
+	//if (d == b) // Ошибка
 
-	int a;
-	v.clear();
-	while (cin >> a)
-	{
-		v.push_back(a); // O(1)
-	}
-
-	cout << (n = v.size()) << " ";
-
-	cout << v.capacity() << "\n";
+	if (abs(d-b)<= craze_eps) // то равны
 
 
-	//Сортировка вставкой
 
-	sort(v);
-
-	sort(vv);
-
-	for (int i = 0; i < n; ++i)
-	{
-		cout << v[i] << " ";
-	}
-	cout << "\n";
-	vv = { 2, 3, 4, 5, 6,
-		1, 2 ,3 , 4,
-		3, -3, -12, 100, 99, -100 };
-	// [-100, 101) -> [0 201)
-	//-100 + x = 0
-	vector<int> counting(201);
-
-	for (int i = 0; i < vv.size(); ++i)
-	{
-		int a = vv[i];
-		counting[a + 100]++;
-	}
-
-	for (int j = -100; j < 101; ++j)
-	{
-		for (int i = 0; i < counting[j + 100]; ++i)
-		{
-			cout << j << " ";
-		}
-	}
 
 
 }
