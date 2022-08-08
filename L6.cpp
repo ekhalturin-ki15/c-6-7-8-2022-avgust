@@ -9,45 +9,43 @@ using namespace std;
 
 #pragma warning(disable : 4996)
 
-struct CrazyStruct
-{
-	int x;
-	int y;
-
-	char ch;
-
-	int i[1000];
-
-
-}   a1, a2;
-
-int i1, i2;
-
-
 struct MyPoint
 {
-	int x;
-	int y;
-	int z;
+	int x = 0;
+	int y = 0;
+	int z = 0;
+
+	/*MyPoint(int xx, int yy, int zz) : x{ xx }, y{ yy }, z{ zz }, name{"2323"}
+	{
+
+	}*/
 
 	string name;
 
-}  p1, p2;
+	int CinName(); // Метод
+} p1, p2, p3;
 
 
-int dis_between_point(MyPoint l, MyPoint r)
+int MyPoint::CinName() //MyPoint:: указывает на то, что это метод структуры MyPoint
 {
-	//cin >> l;
-	//cin >> l.x >> l.y >> l.z;
-	return l.x + l.y + l.z - r.x - r.y - r.z;
+	int ret = x + y + z;
+
+	cin >> name;
+	cin >> x >> y >> z;
+
+	return ret;
 }
 
-int dis_between_point(int x1, int y1, int z1, int x2, int y2, int z2)
-{
-	return x1 + y1 + z1 - x2 - y2 - z2;
-}
+//void CinName(MyPoint p) // Копирование
+//{
+//
+//}
 
-
+//void CinName(MyPoint& p) // Копирование
+//{
+//	cin >> p.name;
+//	cin >> p.x >> p.y >> p.z;
+//}
 
 int main()
 {
@@ -56,54 +54,27 @@ int main()
 	freopen_s(&IN,"input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	int x1, y1, z1;
-	int x2, y2, z2;
 
+	/*CinName(p2);
+	CinName(p1);
+	CinName(p3);
+	CinName(p2);*/
 
+	cout << p2.CinName() << "\n";
 
-	if (1 == 2)
-	{
-		//true
+	cout << p3.CinName() << "\n";
 
-	}
-	else
-	{
-		//false
+	cout << p2.CinName() << "\n";
 
-	}
+	cout << p1.CinName() << "\n";
 
-	while (1 == 2) // пока true выполняем фигурные скобки
-	{
-		
+	vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
 
-	}
+	v.pop_back();
 
-	for (int i = 0; i < 100; ++i) // выполнится 100 шагов
-	{
-
-	}
-
-	int a[1000];
-
-	int N = 1000;
-	int* da = new int[N];
-
-	delete[] da;
-
-	vector<int> va(1000);
-
-	va[9] = 100;
-
-
-	p1.x = 1000;
-
-	p2.x = 2000;
-
-
-
-
-
-
+	cout << v[0];
 
 
 }
