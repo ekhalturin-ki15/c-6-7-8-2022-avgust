@@ -6,6 +6,7 @@
 #include <fstream>
 #include <tuple>
 #include <functional>
+#include <algorithm> // sort   merge_sort
 
 //G++ #include "bits/stdc++.h"
 using namespace std;
@@ -13,25 +14,26 @@ using namespace std;
 #pragma warning(disable : 4996)
 
 
-int sum(int a, float b)
+void sort(vector<int>& v)
 {
-	return a + b;
+	int n = v.size();
+	for (int i = 0; i < n; ++i) // Ищем 0 максимум потом 1 максимум и т.д 
+	{
+		int maxa = v[0];
+		int pos = 0;
+		for (int j = 1; j < n - i; ++j)
+		{
+			if (v[j] > maxa)
+			{
+				maxa = v[j];
+				pos = j;
+			}
+		}
+
+		std::swap(v[pos], v[n - 1 - i]);
+
+	}
 }
-
-int mul(int a, float b)
-{
-	return a * b;
-
-}
-
-//int doing(void* f)
-int crazy_doing(std::function < int(int,float)> f, int a, int b)
-{
-	return f(a, b);
-}
-
-
-
 
 int main()
 {
@@ -40,26 +42,46 @@ int main()
 	freopen_s(&IN,"input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	int* q; // = 35893475
+	string crazy_s;
+	crazy_s.push_back('2');
 
-	int a = 500, b; // по адресу 35893475
+	crazy_s.c_str(); // Из string в char*
 
-	//cout << float(a);
+	vector<int> vv = {2, 3, 4, 5, 6, 1, 2 ,3 , 4, 3};
+	vector<int> v;
+	int n;
+	//cin >> n;
 
-	q = &a;
+	//v.resize(n);
 
-	void* p;
+	//for (int i = 0; i < n; ++i)
+	//{
+	//	cin >> v[i];
+	//}
 
-	p = &a; // 5000
 
-	//cout << *(int*)(p);
-	std::function < int(int, float)> random_function = sum;
+	int a;
+	v.clear();
+	while (cin >> a)
+	{
+		v.push_back(a); // O(1)
+	}
 
-	p = sum;
-	cin >> a >> b;
+	cout << (n = v.size()) << " ";
 
-	random_function = mul;
+	cout << v.capacity() << "\n";
 
-	cout << crazy_doing(sum, a , b) << " " << crazy_doing(mul, a, b);
+
+	//Сортировка вставкой
+
+	sort(v);
+
+	sort(vv);
+
+	for (int i = 0; i < n; ++i)
+	{
+		cout << v[i] << " ";
+	}
+
 
 }
