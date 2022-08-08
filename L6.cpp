@@ -82,6 +82,27 @@ int main()
 	{
 		cout << v[i] << " ";
 	}
+	cout << "\n";
+	vv = { 2, 3, 4, 5, 6,
+		1, 2 ,3 , 4,
+		3, -3, -12, 100, 99, -100 };
+	// [-100, 101) -> [0 201)
+	//-100 + x = 0
+	vector<int> counting(201);
+
+	for (int i = 0; i < vv.size(); ++i)
+	{
+		int a = vv[i];
+		counting[a + 100]++;
+	}
+
+	for (int j = -100; j < 101; ++j)
+	{
+		for (int i = 0; i < counting[j + 100]; ++i)
+		{
+			cout << j << " ";
+		}
+	}
 
 
 }
