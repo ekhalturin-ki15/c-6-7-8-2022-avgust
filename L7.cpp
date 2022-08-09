@@ -9,35 +9,33 @@ using namespace std;
 
 #pragma warning(disable : 4996)
 
-void input(int& d)
+template <typename CrazyT>
+struct CrazyPoint
 {
-	cin >> d;
-}
+	CrazyT x;
+	CrazyT y;
 
-int sum(int a, int b)
-{
-	return a + b;
-
-}
-
-
-struct Math
-{
-	int a; // Поля [-2^31 2^31-1] переная, но внутри структуры
-	int b;
-	char ch;// Поля [-128 127]
-
-
-	void Read() // Метод, но относительно структуры
-	{
-		cin >> a;
-		cin >> b;
-		cin >> ch;
-
-	}
-
+	string name;
 };
 
+
+template <typename CrazyT>
+CrazyT sum(CrazyT a, CrazyT b) // В функциях сам по себе определяется шаблонный тип, в зависимости от аргументов
+{
+	return a + b;
+}
+
+
+int sum(int a, int b) // В функциях сам по себе определяется шаблонный тип, в зависимости от аргументов
+{
+	return a + b;
+}
+
+
+string sum(string a, string b) // В функциях сам по себе определяется шаблонный тип, в зависимости от аргументов
+{
+	return a + b;
+}
 
 
 
@@ -49,86 +47,19 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	int a = 10;
-	unsigned int i = 10;
-
-	const int aa = 1000;
-
-	int q = 50;
-	input(q);
-
-	cin >> q;
-
-	//func(300);
-
-
-	if (1 == 2)
-	{
-
-
-	}
-	else
-	{
-
-
-	}
-
-
-	cout << ((1 == 3) ? 10 : -1);
-
-	switch (q) // Нельзя передавать массивы
-	{
-	case 10: 
-
-		break;
-	case 20:
-
-		
-	default:
-		break;
-	}
-
-	//Цикл
-	while (1 == 2)
-	{
-		q = 100;
-		continue; // 1 == 2 
-
-	}
-
-	for (int i = 10; i >=0; ++i) // 1e7
-	{
-		continue; // ++i i >=0
-
-		break; // Выходим за цикл
-	}
-
-
-
-	Math q1, w1, e1; // Объекты (Экземпляр структуры)
-	q1.a;
-	w1.b = 10;
-
-
-	int* ii = &q;
-
-	Math* qw;
-	qw = &q1;
-
-
-	(*qw).a = 100;
-	qw->b = 100;
-
-
-	//Read();
-
-	qw->Read();
-
 	vector<int> v;
 	vector<char> vv;
 
+	CrazyPoint<int> pi;
+	CrazyPoint<double> pd;
 
+	pi.x = 10.5;
 
+	pd.x = 10.5;
+
+	cout << sum<int>(32, 34.23);
+
+	std::min(1, 2);
 
 	return 0;// 
 
