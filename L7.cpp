@@ -1,14 +1,8 @@
 ﻿#include <iostream>
 #include <vector> //~20% дольше
 #include <string>
-
 #include <forward_list>
-
 #include <list> // Список
-
-
-
-
 
 //G++ #include "bits/stdc++.h"
 using namespace std;
@@ -20,61 +14,65 @@ using namespace std;
 
 int main()
 {
-
 	FILE* IN;
 	FILE* OUT;
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	list<double> crazyList;
+	vector<int> v = {2, 3, 4, 2, 1, 2, 3, 3, 4, 4};
 
-	crazyList.push_back(23.2323);
+	list <int> l = { 2, 3, 4, 5, 2, 3, 4, 5, 6, 6, 2, 3 };
 
-	crazyList.pop_back();
+	//l.resize()
 
-	crazyList.push_front(2323.1212);
+	vector<int>::iterator crazy_it;
 
-	crazyList.insert
-	(  next(crazyList.begin() , 10 ) , 34.5); // Вставка в указанную позицию
+	list<int>::iterator list_it;
 
-	crazyList.erase(next(crazyList.begin(), 10));
+	crazy_it = v.begin();
 
-	//crazyList[5];
-	//Очень долгое (O(N)) обращение к элементу
+	crazy_it = v.end();
 
 
-	crazyList.begin();// iterator
+	for (crazy_it = v.begin(); crazy_it != v.end(); crazy_it += 2)
+	{
+		cout << (*crazy_it);
+	}
 
-	crazyList.rbegin();// reverse_iterator
+	cout << "\n";
 
-	crazyList.end();
+	cout << endl; // Для общения двух программ cout.flush() очистка буфера вывода
+	//Совокупность команд//cout << "\n"; cout.flush();
 
+	for (list_it = l.begin(); list_it != l.end(); list_it++)
+	{
+		cout << (*list_it);
+	}
 
-	//crazyList.insert(next(crazyList.begin() + 10), 34.5);  + -
+	cout << "\n\n";
 
+	list_it = l.end();
 
+	for (int i = 0; i < l.size(); i++)
+	{
+		--list_it;
+		cout << (*list_it);	
+	}
 
+	cout << "\n\n";
 
+	for (list_it = l.end(); list_it != l.begin(); )
+	{
+		--list_it;
+		cout << (*list_it);
+	}
+	cout << "\n\n";
+	list<int>::reverse_iterator rlist_it; // Нельзя исп. обычный итератор
 
-	vector<char> vc; // 0
+	for (rlist_it = l.rbegin(); rlist_it != l.rend(); rlist_it++)
+	{
+		cout << (*rlist_it);
+	}
 
-	vc.push_back('a'); 
-
-	vc.push_back('b');
-
-	//   ab
-
-	vc.push_back('e');
-
-	//   abe
-
-	vc.capacity();
-
-
-	vc[5]; // O(1)
-
-	//*(vc + 5);
-
-	return 0;// 
-
+	return 0;
 }
