@@ -1,10 +1,13 @@
 ﻿#include <iostream>
-#include <vector>
+#include <vector> //~20% дольше
 #include <string>
-#include <iomanip>
-#include <cmath>
-#include <fstream>
-#include <functional>
+
+#include <forward_list>
+
+#include <list> // Список
+
+
+
 
 
 //G++ #include "bits/stdc++.h"
@@ -12,107 +15,66 @@ using namespace std;
 
 #pragma warning(disable : 4996)
 
-template <typename CrazyT>
-struct CrazyPoint
-{
-	CrazyT x;
-	CrazyT y;
-
-	string name;
 
 
-};
-
-
-
-int sum(int a, int b) // В функциях сам по себе определяется шаблонный тип, в зависимости от аргументов
-{
-	return a + b;
-}
-
-//
-//string sum(string a, string b) // В функциях сам по себе определяется шаблонный тип, в зависимости от аргументов
-//{
-//	return a + b;
-//}
-
-
-
-//int crazyDoing(void* fun)
-//{
-//	return *((int*)  fun);
-//
-//}
-
-int crazyDoing(std::function<int(int, int)> f);
-
-
-template <typename T, typename M>
-struct CrazyStruct
-{
-	T a;
-	M d;
-
-};
-
-
-struct AAA
-{
-	int r;
-	char c;
-	double d;
-
-};
 
 int main()
 {
+
 	FILE* IN;
 	FILE* OUT;
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	vector<int> v = { 34, 3, 3 , 2 , 1, 3, 2 }; // Композиция
+	list<double> crazyList;
 
-	CrazyStruct<int, double> cs = {100,  0};
+	crazyList.push_back(23.2323);
 
-	pair<int, double> pr = {1 , 23};
+	crazyList.pop_back();
 
-	pr.first = 100;
+	crazyList.push_front(2323.1212);
 
-	pr.second = 0.233;
+	crazyList.insert
+	(  next(crazyList.begin() , 10 ) , 34.5); // Вставка в указанную позицию
 
-	tuple<int, double, char, int> t = {1, 3.34, 'f', 0};
-	tuple<int, double, char, int> tt = t;
+	crazyList.erase(next(crazyList.begin(), 10));
 
-	get<1>(t) = 10.234;
-
-	auto z = 100;
-	auto zz = 1.32323;
+	//crazyList[5];
+	//Очень долгое (O(N)) обращение к элементу
 
 
-	int crazy_xx = pr.first;
+	crazyList.begin();// iterator
+
+	crazyList.rbegin();// reverse_iterator
+
+	crazyList.end();
 
 
-	auto [crazy_x, crazy_y] = pr; // Копирование из pair
-	crazy_x = 10;
-	crazy_y = 100;
+	//crazyList.insert(next(crazyList.begin() + 10), 34.5);  + -
 
 
-	auto& [crazyy_x, crazyy_y] = pr; // Оригинальные поля из pair
-	crazy_x = 10;
 
-	int& crazyy_xx = pr.first;
 
-	AAA aaa;
-	aaa.c = 1;
-	aaa.d = 1;
-	aaa.r = 1;
 
-	auto [q1, q2, q3] = aaa;
+	vector<char> vc; // 0
 
-	aaa.r = 100;
+	vc.push_back('a'); 
 
-	cout << q1;
+	vc.push_back('b');
+
+	//   ab
+
+	vc.push_back('e');
+
+	//   abe
+
+	vc.capacity();
+
+
+	vc[5]; // O(1)
+
+	//*(vc + 5);
 
 	return 0;// 
+
 }
