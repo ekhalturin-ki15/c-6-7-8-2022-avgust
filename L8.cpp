@@ -33,9 +33,24 @@ struct My
 	string read()
 	{
 		return to_string(a);
-
 	}
 };
+
+bool crzyCmp2(My l, My r) // <
+{
+	if (l.a < r.a) return true;
+
+	return false;
+}
+
+bool crzyCmp(int l, int r) // <
+{
+	if (l >= r) return true;
+
+	return false;
+}
+
+
 int main()
 {
 	FILE* IN;
@@ -45,7 +60,16 @@ int main()
 
 	vector<My> v;
 	stack<My> s;
-	deque<My> d;
+
+	vector<int> d = {1, 2, 3, 4, 2, 3, 4, 2, 4, 10};
+	sort(d.begin(), d.end(), crzyCmp);
+
+	deque<My> dd;
+	sort(dd.begin(), dd.end(), crzyCmp2);
+
+
+
+
 	queue<My> q;
 	list<My> l;
 
@@ -55,7 +79,24 @@ int main()
 	cout.tie(0);
 
 	// My < My
-	set< int > ss; // Внутри себя свё отсортировано //Не хранит дубликаты
+	set< int > ss; // Внутри себя все отсортировано //Не хранит дубликаты
+
+
+	//O(log(n))--------------
+	ss.insert(100); // Вставка по значению
+
+	ss.erase(1);//Удаление по значению
+
+	ss.count(100); //Определение, есть ли такое значение
+
+	ss.begin();
+
+	ss.end();
+	//----------------
+
+
+	
+
 
 	int n = 3e5;
 	for (int i = 0; i < n; ++i) // O(n * log(n))
