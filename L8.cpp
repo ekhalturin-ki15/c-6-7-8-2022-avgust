@@ -56,103 +56,46 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	vector<int> d = {3, 3, 3, 4, 2, 3, 4, 2, 4, 10};
-	sort(d.begin(), d.end(), MyCmp() );
-	//sort(d.begin(), d.end(), greater<int>());
 
-	map<string, int, greater<string> > crazy_map; // первый шаблон - это ключ 
-	//(то, при помощи чего можно обратиться к элементу)
-
-	//В vector ключ можно считать индекс
-
-	pair<string, int> pr;
-	pr.first = "aaa";
-	pr.second = 10;
+	//set<int>  Ключ должен сравнивать своё значение оператором <
+	//map<map<int, int> , int> m;
+	map<int, int> m;
+	char ch;
 
 
-	crazy_map.insert(pr);
-	crazy_map["aaa"] = 10;
-
-	pr.first = "aab"; // Нет двух элементов с одинаковым ключом
-	pr.second = -12;
-
-	crazy_map.insert(pr); //Так как ключ совпал, то не произошло вставки (игнорируем)
+	m[0]; // Создадим элемент с указаным ключем и значением 0
 
 
-
-	crazy_map["1121sdd"] = 100;
-	(*crazy_map.find("1121sdd")).second = 100; //Тоже самое, что crazy_map["1121sdd"] = 100;
-
-
-	//cout << crazy_map["aaa"];
-
-
-
-
-
-	crazy_map.erase("aab"); // Достаточно знать ключ
-
-	//В set ключ = значение
-
-	if (crazy_map.count("aab")) // Достаточно знать ключ
+	while (cin >> ch)
 	{
+		// Изначально 0 увеличил до 1
+		//А если ключ уже есть, то берем уже записанное значение
+		m[ch]++;
+	}
 
-
+	for (auto [k, v] : m)
+	{
+		cout << k << " = " << v << "\n";
 	}
 
 
-
-	map<int, int> v;
-
-	for (int i = 0; i < 100; ++i)
-	{
-		//if (v.count(i))
-		cout << v[i]; // Создаю новый элемент с тем ключом, который просматриваю
+	multiset<int> ms;
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
 
 
-		v[i] = i;
+	ms.erase(10);
 
-		//И с нулевым значением
-	}
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
+	ms.insert(10);
 
-	//(*v.begin()).first = 100; // Нельзя менять, ключи константные (если нужно, делайте перенос)
-	(*v.begin()).second = 100;
+	ms.erase(ms.find(10)); // Удалить по итератору (то есть только один элемент)
 
-	cout << "\n";
-	for (pair<int, int> it : v) // Копирование данных
-	{
-		cout << "Ключ = " << it.first << " | Значение = " << it.second << "\n";
-		it.first = 10; //При копии не меняется оригинал
-	}
-
-	for (pair<const int, int>& it : v) // Обращение к оригиналу
-	{
-		cout << "Ключ = " << it.first << " | Значение = " << it.second << "\n";
-		it.second = 10; // Нельзя менять ключи
-	}
-
-
-	for (auto [crazy_key, crazy_val] : v) // Копирование
-	{
-		cout << "Ключ = " << crazy_key << " | Значение = " << crazy_val << "\n";
-		crazy_val = 30; //При копии не меняется оригинал
-	}
-
-
-	for (auto& [crazy_key, crazy_val] : v) // Обращение к оригиналу
-	{
-		cout << "Ключ = " << crazy_key << " | Значение = " << crazy_val << "\n";
-		crazy_val = 20; 
-	}
-
-
-	cout << v.size();
-
-
-	v[-100]++;
-
-	v[134234324] = 23;
-
+	cout << ms.count(10);
 
 
 
