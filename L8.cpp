@@ -5,6 +5,10 @@
 #include <cmath>
 #include <fstream>
 #include <list> // Список
+#include <stack>
+#include <queue>
+
+#include <set>
 
 //G++ #include "bits/stdc++.h"
 using namespace std;
@@ -18,66 +22,32 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	list<int> ls = {-5};
+	vector<int> v;
 
-	ls.insert(ls.begin(), -1);
-	ls.insert(ls.end(), -2);
+	stack<int> st; // Для других программистов // Обрезанный vector
 
-	int pos; cin >> pos;
+	st.push(10); v.push_back(10);
+	st.pop();    v.pop_back();
+	st.top();    v[v.size() - 1];
 
+	//st[2];		 
+	//v[2];
 
-	int a;
-	while (cin >> a)
-	{
-		ls.push_back(a);
-	}
+	
 
-	list<int>::iterator it = ls.begin();
+	deque<int> d; // Улучшенный vector Двусторонняя очередь
 
-	for (int i = 0; i < pos; ++i)
-	{
-		if (it == ls.end()) break;
-		++it;
-	}
+	d.push_front(100);
 
+	d.pop_front();
 
-	for (int i = 100000; i >= 0; --i)
-	{
-		ls.insert(it, i / 10); // O(1)
-	}
+	queue<int> q; // Для других программистов // Обрезанный deque
 
-	for (int crazy_it : ls) // Пробежка от begin до end (копирование)
-	{
-		crazy_it = 1;
-	}
-	for (int crazy_it : ls) // Пробежка от begin до end (копирование)
-	{
-		cout << crazy_it << " ";
-	}
-
-	for (int& crazy_it : ls) // Пробежка от begin до end (взятие оригинала)
-	{
-		crazy_it = 1;
-	}
-
-	int g = 1000;
-
-	int b = g;
-
-	b = b + 1;
-
-	int& q = g; // Теперь у a два имени (g и q) не создаём переменную
-
-	q = q + 1;
-
-
-
-	/*
-	for (list<int>::iterator it = ls.begin(); it != ls.end(); ++it)
-	{
-		cout << *it << " ";
-	}
-	*/
+	q.push(10); d.push_back(10);
+	q.pop();    d.pop_front();
+	q.front();  d[0];
+	d[10];
+	//q[10];
 
 
 
