@@ -18,53 +18,66 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
+	list<int> ls = {-5};
 
-	vector<int> v, q;
+	ls.insert(ls.begin(), -1);
+	ls.insert(ls.end(), -2);
 
-	//v[10]; // O(1)
-
-	//Частые асимптотики O(1) O(n) O(n^2) O(sqrt(n)) O(log(n))
-
-
-	v.push_back(100); //  n  O(1) 
-	v.size();     // 1 2 3 4 5  6 7 8
-	v.capacity(); //  1  2  4       8 16    32 O(n)  С запасом
-
-	v.pop_back(); // n O(1)
-
-	//v.push_front(100); // O(n)
+	int pos; cin >> pos;
 
 
-	int Q;
-	cin >> Q; // 3
-	//v[3]  v[4];
-
-	v = { 4, 3, 2, 1, 5, 6, 4, 3, 2, 1 };
-
-	v.resize(v.size() + 1);
-
-	for (int i = v.size() - 2; i >= Q + 1; --i)
+	int a;
+	while (cin >> a)
 	{
-		v[i + 1] = v[i];
+		ls.push_back(a);
 	}
-	v[Q + 1] = 7;
 
-	for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+	list<int>::iterator it = ls.begin();
+
+	for (int i = 0; i < pos; ++i)
+	{
+		if (it == ls.end()) break;
+		++it;
+	}
+
+
+	for (int i = 100000; i >= 0; --i)
+	{
+		ls.insert(it, i / 10); // O(1)
+	}
+
+	for (int crazy_it : ls) // Пробежка от begin до end (копирование)
+	{
+		crazy_it = 1;
+	}
+	for (int crazy_it : ls) // Пробежка от begin до end (копирование)
+	{
+		cout << crazy_it << " ";
+	}
+
+	for (int& crazy_it : ls) // Пробежка от begin до end (взятие оригинала)
+	{
+		crazy_it = 1;
+	}
+
+	int g = 1000;
+
+	int b = g;
+
+	b = b + 1;
+
+	int& q = g; // Теперь у a два имени (g и q) не создаём переменную
+
+	q = q + 1;
+
+
+
+	/*
+	for (list<int>::iterator it = ls.begin(); it != ls.end(); ++it)
 	{
 		cout << *it << " ";
 	}
-
-	v.assign(10, -1);
-
-	v.resize(1000);
-
-
-	list< vector< char > > l;
-
-	cout << sizeof(int); // Функция возвращает размер типа данных
-
-
-	
+	*/
 
 
 
