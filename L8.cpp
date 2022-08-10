@@ -8,6 +8,8 @@
 #include <stack>
 #include <queue>
 
+#include <random>
+
 #include <set>
 
 //G++ #include "bits/stdc++.h"
@@ -48,54 +50,29 @@ int main()
 	list<My> l;
 
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
 	// My < My
 	set< int > ss; // Внутри себя свё отсортировано //Не хранит дубликаты
 
-	ss.insert(10);
-	ss.insert(10);
-	ss.insert(10);
-	ss.insert(10);
-	ss.insert(10);
-
-	for (set< int >::iterator it = ss.begin(); it != ss.end(); ++it)
+	int n = 3e5;
+	for (int i = 0; i < n; ++i) // O(n * log(n))
 	{
-		cout << *it << " ";
-	}
-	cout << "\n";
-	ss.insert(12);
-	ss.insert(12);
-	ss.insert(12);
-	ss.insert(12);
-	ss.insert(12);
-
-
-	//ss.erase(12);
-
-	ss.erase(0);
-
-	for (int it : ss)
-	{
-		cout << it << " ";
+		int r = rand() * (long long) rand(); // 0 2^31  O(1) % 
+		ss.insert(r); 
 	}
 
-	if (ss.find(12) == ss.end())
+	for (int i = 0; i < n; ++i) // O(n * log(n))
 	{
-		cout << "Его нет\n";
+		if (ss.count(i))
+		{
+			cout << "YES\n";
+		}
+
 	}
 
-	if (ss.count(12))
-	{
-		cout << "YES\n";
-	}
-
-
-	My a, b;
-
-	/*if (a < b)
-	{
-
-
-	}*/
 
 
 
