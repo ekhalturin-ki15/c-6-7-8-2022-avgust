@@ -84,7 +84,7 @@ int main()
 	(*crazy_map.find("1121sdd")).second = 100; //Тоже самое, что crazy_map["1121sdd"] = 100;
 
 
-	cout << crazy_map["aaa"];
+	//cout << crazy_map["aaa"];
 
 
 
@@ -106,12 +106,45 @@ int main()
 
 	for (int i = 0; i < 100; ++i)
 	{
-		if (v.count(i))
-			cout << v[i]; // Создаю новый элемент с тем ключом, который просматриваю
+		//if (v.count(i))
+		cout << v[i]; // Создаю новый элемент с тем ключом, который просматриваю
 
+
+		v[i] = i;
 
 		//И с нулевым значением
 	}
+
+	//(*v.begin()).first = 100; // Нельзя менять, ключи константные (если нужно, делайте перенос)
+	(*v.begin()).second = 100;
+
+	cout << "\n";
+	for (pair<int, int> it : v) // Копирование данных
+	{
+		cout << "Ключ = " << it.first << " | Значение = " << it.second << "\n";
+		it.first = 10; //При копии не меняется оригинал
+	}
+
+	for (pair<const int, int>& it : v) // Обращение к оригиналу
+	{
+		cout << "Ключ = " << it.first << " | Значение = " << it.second << "\n";
+		it.second = 10; // Нельзя менять ключи
+	}
+
+
+	for (auto [crazy_key, crazy_val] : v) // Копирование
+	{
+		cout << "Ключ = " << crazy_key << " | Значение = " << crazy_val << "\n";
+		crazy_val = 30; //При копии не меняется оригинал
+	}
+
+
+	for (auto& [crazy_key, crazy_val] : v) // Обращение к оригиналу
+	{
+		cout << "Ключ = " << crazy_key << " | Значение = " << crazy_val << "\n";
+		crazy_val = 20; 
+	}
+
 
 	cout << v.size();
 
