@@ -15,6 +15,25 @@ using namespace std;
 
 #pragma warning(disable : 4996)
 
+
+
+struct My
+{
+	int a;
+	int b;
+
+	My()
+	{
+		a = 10;
+		b = 20;
+	}
+
+	string read()
+	{
+		return to_string(a);
+
+	}
+};
 int main()
 {
 	FILE* IN;
@@ -22,32 +41,63 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	vector<int> v;
+	vector<My> v;
+	stack<My> s;
+	deque<My> d;
+	queue<My> q;
+	list<My> l;
 
-	stack<int> st; // Для других программистов // Обрезанный vector
 
-	st.push(10); v.push_back(10);
-	st.pop();    v.pop_back();
-	st.top();    v[v.size() - 1];
+	// My < My
+	set< int > ss; // Внутри себя свё отсортировано //Не хранит дубликаты
 
-	//st[2];		 
-	//v[2];
+	ss.insert(10);
+	ss.insert(10);
+	ss.insert(10);
+	ss.insert(10);
+	ss.insert(10);
 
-	
+	for (set< int >::iterator it = ss.begin(); it != ss.end(); ++it)
+	{
+		cout << *it << " ";
+	}
+	cout << "\n";
+	ss.insert(12);
+	ss.insert(12);
+	ss.insert(12);
+	ss.insert(12);
+	ss.insert(12);
 
-	deque<int> d; // Улучшенный vector Двусторонняя очередь
 
-	d.push_front(100);
+	//ss.erase(12);
 
-	d.pop_front();
+	ss.erase(0);
 
-	queue<int> q; // Для других программистов // Обрезанный deque
+	for (int it : ss)
+	{
+		cout << it << " ";
+	}
 
-	q.push(10); d.push_back(10);
-	q.pop();    d.pop_front();
-	q.front();  d[0];
-	d[10];
-	//q[10];
+	if (ss.find(12) == ss.end())
+	{
+		cout << "Его нет\n";
+	}
+
+	if (ss.count(12))
+	{
+		cout << "YES\n";
+	}
+
+
+	My a, b;
+
+	/*if (a < b)
+	{
+
+
+	}*/
+
+
 
 
 
