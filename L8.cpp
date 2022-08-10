@@ -7,6 +7,8 @@
 #include <list> // Список
 #include <stack>
 #include <queue>
+#include <map>
+
 
 #include <random>
 
@@ -18,37 +20,33 @@ using namespace std;
 #pragma warning(disable : 4996)
 
 
-
-struct My
+bool crzyCmp(int l, int r) // <
 {
-	int a;
-	int b;
+	if (l > r) return true;
+	return false; // l == r
+}
 
-	My()
+
+//l == r  false
+
+//(!(l < r) && !(r < l))  ~ l == r
+
+struct MyCmp
+{
+	int x = 0;
+
+	int info() const // Константный метод (нельзя менять поля)
 	{
-		a = 10;
-		b = 20;
+		//x = 10;
+		return x;
 	}
 
-	string read()
+	bool operator()(int l, int r) const
 	{
-		return to_string(a);
+		return abs(l-x) < abs(r - x);
 	}
 };
 
-bool crzyCmp2(My l, My r) // <
-{
-	if (l.a < r.a) return true;
-
-	return false;
-}
-
-bool crzyCmp(int l, int r) // <
-{
-	if (l >= r) return true;
-
-	return false;
-}
 
 
 int main()
@@ -58,63 +56,69 @@ int main()
 	freopen_s(&IN, "input.txt", "r", stdin);
 	freopen_s(&OUT, "output.txt", "w", stdout);
 
-	vector<My> v;
-	stack<My> s;
+	vector<int> d = {3, 3, 3, 4, 2, 3, 4, 2, 4, 10};
+	sort(d.begin(), d.end(), MyCmp() );
+	//sort(d.begin(), d.end(), greater<int>());
 
-	vector<int> d = {1, 2, 3, 4, 2, 3, 4, 2, 4, 10};
-	sort(d.begin(), d.end(), crzyCmp);
+	map<string, int, greater<string> > crazy_map; // первый шаблон - это ключ 
+	//(то, при помощи чего можно обратиться к элементу)
 
-	deque<My> dd;
-	sort(dd.begin(), dd.end(), crzyCmp2);
+	//В vector ключ можно считать индекс
 
-
-
-
-	queue<My> q;
-	list<My> l;
+	pair<string, int> pr;
+	pr.first = "aaa";
+	pr.second = 10;
 
 
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
+	crazy_map.insert(pr);
+	crazy_map["aaa"] = 10;
 
-	// My < My
-	set< int > ss; // Внутри себя все отсортировано //Не хранит дубликаты
+	pr.first = "aab"; // Нет двух элементов с одинаковым ключом
+	pr.second = -12;
 
-
-	//O(log(n))--------------
-	ss.insert(100); // Вставка по значению
-
-	ss.erase(1);//Удаление по значению
-
-	ss.count(100); //Определение, есть ли такое значение
-
-	ss.begin();
-
-	ss.end();
-	//----------------
+	crazy_map.insert(pr); //Так как ключ совпал, то не произошло вставки (игнорируем)
 
 
-	
+
+	crazy_map["1121sdd"] = 100;
+	(*crazy_map.find("1121sdd")).second = 100; //Тоже самое, что crazy_map["1121sdd"] = 100;
 
 
-	int n = 3e5;
-	for (int i = 0; i < n; ++i) // O(n * log(n))
+	cout << crazy_map["aaa"];
+
+
+
+
+
+	crazy_map.erase("aab"); // Достаточно знать ключ
+
+	//В set ключ = значение
+
+	if (crazy_map.count("aab")) // Достаточно знать ключ
 	{
-		int r = rand() * (long long) rand(); // 0 2^31  O(1) % 
-		ss.insert(r); 
-	}
 
-	for (int i = 0; i < n; ++i) // O(n * log(n))
-	{
-		if (ss.count(i))
-		{
-			cout << "YES\n";
-		}
 
 	}
 
 
+
+	map<int, int> v;
+
+	for (int i = 0; i < 100; ++i)
+	{
+		if (v.count(i))
+			cout << v[i]; // Создаю новый элемент с тем ключом, который просматриваю
+
+
+		//И с нулевым значением
+	}
+
+	cout << v.size();
+
+
+	v[-100]++;
+
+	v[134234324] = 23;
 
 
 
